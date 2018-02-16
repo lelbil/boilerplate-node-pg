@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+ pg-db:
+  image: postgres:latest
+  environment:
+   POSTGRES_DB: db_name
+   POSTGRES_USER: username
+   POSTGRES_PASSWORD: password
+  hostname: pg-db
+  ports:
+   - 5433:5432
+
+ app:
+  container_name: api
+  ports:
+   - 3001:3000
+  environment:
+   - PORT=3000
+  build: .
+  depends_on:
+   - pg-db
+  entrypoint: ["./wait-for-postgres.sh"]
