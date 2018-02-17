@@ -20,4 +20,4 @@ services:
   build: .
   depends_on:
    - pg-db
-  entrypoint: ["./wait-for-postgres.sh"]
+  entrypoint: ["./wait-for-postgres.sh", "npm start"]
