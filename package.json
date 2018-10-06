@@ -1,10 +1,10 @@
 {
-  "name": "game",
+  "name": "node-boilerplate",
   "version": "1.0.0",
-  "description": "mini-projet pour le module de base de données",
+  "description": "A node.js boilerplate with a postgreSQL database",
   "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/cucumber-js tests/func/features --require tests/func/support",
     "start": "node api/index.js"
   },
   "author": "",
@@ -14,5 +14,10 @@
     "knex": "*",
     "pg": "*",
     "sqlite3": "*"
+  },
+  "devDependencies": {
+    "@ekino/veggies": "^0.6.0",
+    "chai": "^4.2.0",
+    "cucumber": "^5.0.1"
   }
 }

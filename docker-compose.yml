@@ -18,6 +18,8 @@ services:
   environment:
    - PORT=3000
   build: .
+  volumes:
+    - .:/usr/src/app
   depends_on:
    - pg-db
   entrypoint: ["./wait-for-postgres.sh", "npm start"]
