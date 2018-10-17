@@ -1,11 +1,11 @@
 ## App Control ##
 start:
 	@docker-compose up -d --build
-	#TODO: add KNEX migration (seed data) support at the start of the app
-	#@sleep 5
-	#@make migrate
+	@sleep 5
+	@make migrate
+	#TODO: add seeding support at the start of the app
 	#@docker exec app make seed
-	#@make applog
+	@make applog
 
 quit:
 	@docker-compose stop
@@ -18,8 +18,8 @@ restart:
 applog:
 	@docker logs api -f
 
-#migrate:
-	#@node_modules/.bin/knex migrate:latest
+migrate:
+	@node_modules/.bin/knex migrate:latest
 
 #seed:
 #	@node scripts/seed.js
